@@ -161,25 +161,7 @@ class Emploee extends User {
 
     
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->address = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
-    }
     
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
     /**
      * Set created
      *

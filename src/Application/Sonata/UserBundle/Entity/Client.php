@@ -73,15 +73,6 @@ class Client extends User {
         return $this->hi_points;
     }
 
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->address = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
-    }
     
     /**
      * Get id

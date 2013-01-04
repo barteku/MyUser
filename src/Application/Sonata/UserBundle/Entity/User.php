@@ -73,8 +73,9 @@ abstract class User extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
+        
         $this->address = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
