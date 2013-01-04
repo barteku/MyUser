@@ -8,6 +8,11 @@ vendor/*
 web/uploads/*
 web/bundles/*
 
+#netbeans
+nbproject/*
+
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml
+/post-deploy-result.txt
+/post_deploy.sh

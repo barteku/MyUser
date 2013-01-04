@@ -1,0 +1,142 @@
+<?php
+/**
+ * Description of StudentAdmin
+ *
+ * @author bartek
+ */
+namespace Application\Sonata\UserBundle\Admin;
+
+use Sonata\AdminBundle\Admin\Admin as BaseAdmin;
+use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
+
+use FOS\UserBundle\Model\UserManagerInterface;
+use FOS\UserBundle\Model\GroupManagerInterface;
+
+class StoreOwnerAdmin extends BaseAdmin {
+    
+    
+    protected $formOptions = array(
+        'validation_groups' => 'Create'
+    );
+    
+    public function getNewInstance()
+    {
+        $class = $this->getClass();
+
+        return new $class('', array());
+    }
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->addIdentifier('lastname')
+            ->add('firstname')
+        ;
+    }
+
+    protected function configureDatagridFilters(DatagridMapper $filterMapper)
+    {
+        $filterMapper
+            ->add('username')
+            ->add('locked')
+            ->add('email')
+            ->add('id')
+        ;
+    }
+    
+    
+    
+    protected function configureFormFields(FormMapper $formMapper)
+    {
+        $formMapper
+            ->with('General')
+                ->add('username')
+                ->add('email')
+                ->add('plainPassword', 'text', array('required' => false))
+            ->end()
+            
+            ->with('Aditional Informations', array('collapsed' => true))
+                ->add('date_of_birth', 'date', array(
+                    'input'  => 'timestamp', 
+                    'widget' => 'choice', 
+                    'pattern' => '{{ year }} {{ month }} {{ day }}', 
+                    'data_timezone' => 'Etc/UTC', 
+                    'user_timezone' => 'Europe/London',
+                    'empty_value' => array('year' => 'Year', 'month' => 'Month', 'day' => 'Day'),
+                    'years' => range(date('Y') -80, date('Y') - 10)
+                    )
+                )
+                ->add('place_of_birth')
+                ->add('country_of_birth')
+                ->add('citizenship')
+                ->add('nationality')
+                ->add('sex','choice', array(
+                    'choices' => array(
+                        'M' => 'male',
+                        'F' => 'female'
+                    )
+                ))
+                
+            ->end()
+                
+           ->with("Address", array('collapsed' => true))
+                ->add('address', 'sonata_type_collection', array(
+                    'required' => false,
+                    'by_reference' => false,
+                    'label' => 'User Address'
+                ), array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'link_parameters' => array('context' => 'default'),
+                    'help' => 'Optionally add or select user address.'
+                ))
+           ->end()
+            
+           ->with('Management')
+                ->add('locked', null, array('required' => false))
+                ->add('expired', null, array('required' => false))
+                ->add('enabled', null, array('required' => false))
+            ->end()
+        ;
+    }
+    
+    
+    public function prePersist($user)
+    {
+        $group = $this->getGroupManager()->findGroupByName('student');
+
+        if (!$user->hasGroup('student'))
+        {
+            $user->addGroup($group);
+        }
+    }
+
+    public function preUpdate($user)
+    {
+        $this->getUserManager()->updateCanonicalFields($user);
+        $this->getUserManager()->updatePassword($user);
+    }
+
+    public function setUserManager(UserManagerInterface $user_manager)
+    {
+        $this->user_manager = $user_manager;
+    }
+
+    public function getUserManager()
+    {
+        return $this->user_manager;
+    }
+
+    public function setGroupManager(GroupManagerInterface $group_manager)
+    {
+        $this->group_manager = $group_manager;
+    }
+
+    public function getGroupManager()
+    {
+        return $this->group_manager;
+    }
+}
