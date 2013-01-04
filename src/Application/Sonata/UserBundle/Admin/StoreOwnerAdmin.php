@@ -106,9 +106,9 @@ class StoreOwnerAdmin extends BaseAdmin {
     
     public function prePersist($user)
     {
-        $group = $this->getGroupManager()->findGroupByName('student');
+        $group = $this->getGroupManager()->findGroupByName('storeowner');
 
-        if (!$user->hasGroup('student'))
+        if (!$user->hasGroup('storeowner'))
         {
             $user->addGroup($group);
         }

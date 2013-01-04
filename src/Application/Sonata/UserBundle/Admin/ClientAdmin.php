@@ -82,9 +82,9 @@ class ClientAdmin extends Admin{
     
     public function prePersist($user)
     {
-        $group = $this->getGroupManager()->findGroupByName('teacher');
+        $group = $this->getGroupManager()->findGroupByName('client');
 
-        if (!$user->hasGroup('teacher'))
+        if (!$user->hasGroup('client'))
         {
             $user->addGroup($group);
         }

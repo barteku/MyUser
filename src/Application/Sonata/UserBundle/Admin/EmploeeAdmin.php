@@ -94,9 +94,9 @@ class EmploeeAdmin extends Admin{
     
     public function prePersist($user)
     {
-        $group = $this->getGroupManager()->findGroupByName('simple admin');
+        $group = $this->getGroupManager()->findGroupByName('emploee');
 
-        if (!$user->hasGroup('simple admin'))
+        if (!$user->hasGroup('emploee'))
         {
             $user->addGroup($group);
         }
