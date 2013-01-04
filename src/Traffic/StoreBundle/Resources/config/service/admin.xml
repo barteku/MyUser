@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+    <service id="traffic.admin.category" class="Traffic\StoreBundle\Admin\CategoryAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="traffic_store" label="category_admin" />
+            <argument />
+            <argument>Traffic\StoreBundle\Entity\Category</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+
+            
+            <call method="setTranslationDomain">
+                <argument>TrafficStoreBundle</argument>
+            </call>
+        </service>
+    </services>
+</container>

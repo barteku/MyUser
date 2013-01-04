@@ -2,7 +2,7 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="fos.user.admin.student" class="Application\Sonata\UserBundle\Admin\ClientAdmin">
+        <service id="fos.user.admin.client" class="Application\Sonata\UserBundle\Admin\ClientAdmin">
             <tag name="sonata.admin" manager_type="orm" group="fos_user" label="client_admin" />
             <argument />
             <argument>Application\Sonata\UserBundle\Entity\Client</argument>
@@ -37,7 +37,7 @@
         </service>
         
         
-        <service id="fos.user.admin.teacher" class="Application\Sonata\UserBundle\Admin\StoreOwnerAdmin">
+        <service id="fos.user.admin.store_owner" class="Application\Sonata\UserBundle\Admin\StoreOwnerAdmin">
             <tag name="sonata.admin" manager_type="orm" group="fos_user" label="store_owner_admin"/>
             <argument />
             <argument>Application\Sonata\UserBundle\Entity\StoreOwner</argument>

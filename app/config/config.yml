@@ -164,8 +164,15 @@ sonata_admin:
         groups:
           fos_user:
             label: Users
-            items: ~
-
+            items: 
+              - fos.user.admin.client
+              - fos.user.admin.emploee
+              - fos.user.admin.store_owner
+              - fos.user.admin.group
+          store_admin:
+            label: Settings
+            items:
+              - traffic.admin.category
     # set to true to persist filter settings per admin module in the user's session
     persist_filters: true    
     
