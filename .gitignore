@@ -16,3 +16,5 @@ app/config/parameters.ini
 app/config/parameters.yml
 /post-deploy-result.txt
 /post_deploy.sh
+.elasticbeanstalk/
+
