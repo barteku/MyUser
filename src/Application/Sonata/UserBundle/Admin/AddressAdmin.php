@@ -43,7 +43,7 @@ class AddressAdmin extends BaseAdmin{
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('address_name')
+            ->add('address_name', null, array('label' => 'address.form.name'))
             ->add('line_1')
             ->add('line_2')    
             ->add('town')

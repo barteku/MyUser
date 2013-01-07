@@ -250,19 +250,6 @@ class StoreOwner extends User {
         return $this->phone_number;
     }
 
-    /**
-     * Add address
-     *
-     * @param \Application\Sonata\UserBundle\Entity\Address $address
-     * @return StoreOwner
-     */
-    public function addAddre(\Application\Sonata\UserBundle\Entity\Address $address)
-    {
-        $this->addAddres($address);
-    
-        return $this;
-    }
-
     
     /**
      * Add address

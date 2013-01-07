@@ -157,6 +157,20 @@ abstract class User extends BaseUser
         return $this->deletedAt;
     }
 
+    
+    /**
+     * Add address
+     *
+     * @param \Application\Sonata\UserBundle\Entity\Address $address
+     * @return StoreOwner
+     */
+    public function addAddre(\Application\Sonata\UserBundle\Entity\Address $address)
+    {
+        $this->addAddres($address);
+    
+        return $this;
+    }
+    
     /**
      * Add address
      *
