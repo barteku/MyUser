@@ -1,0 +1,5 @@
+sudo setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs
+sudo setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs
+/usr/bin/php app/console cache:clear --env=dev
+Clearing the cache for the dev environment with debug true
+Failed homepage status check
