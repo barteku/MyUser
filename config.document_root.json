@@ -1,0 +1,8 @@
+[
+  {
+    "Namespace": "aws:elasticbeanstalk:container:php:phpini", 
+    "OptionName": "document_root", 
+    "Value": "/web/"
+  }
+  
+]

@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
             
             new Traffic\StoreBundle\TrafficStoreBundle(),
+            new Application\FOS\UserBundle\ApplicationFOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test','local','staging'))) {
