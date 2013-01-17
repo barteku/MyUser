@@ -4,45 +4,15 @@ namespace Application\Sonata\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Application\Sonata\UserBundle\Entity\User;
+use Application\Sonata\UserBundle\Model\EmploeeInterface;
+
 
 /**
  * @ORM\Entity
  * 
  */
-class Emploee extends User {
+class Emploee extends User implements EmploeeInterface {
   
-    
-    /**
-     * @var integer
-     */
-    protected $id;
-
-    /**
-     * @var \DateTime
-     */
-    protected $created;
-
-    /**
-     * @var \DateTime
-     */
-    protected $updated;
-
-    /**
-     * @var \DateTime
-     */
-    protected $deletedAt;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    protected $address;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    protected $groups;
-    
-    
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
      */
@@ -160,89 +130,6 @@ class Emploee extends User {
     }
 
     
-
-    
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Emploee
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-    
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return Emploee
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-    
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime 
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
-    /**
-     * Set deletedAt
-     *
-     * @param \DateTime $deletedAt
-     * @return Emploee
-     */
-    public function setDeletedAt($deletedAt)
-    {
-        $this->deletedAt = $deletedAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get deletedAt
-     *
-     * @return \DateTime 
-     */
-    public function getDeletedAt()
-    {
-        return $this->deletedAt;
-    }
-
-    /**
-     * Add address
-     *
-     * @param \Application\Sonata\UserBundle\Entity\Address $address
-     * @return Emploee
-     */
-    public function addAddress(\Application\Sonata\UserBundle\Entity\Address $address)
-    {
-        $this->address[] = $address;
-    
-        return $this;
-    }
 
     
 }

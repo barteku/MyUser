@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
@@ -37,9 +38,11 @@ class AppKernel extends Kernel
             
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
+            new Application\FOS\UserBundle\ApplicationFOSUserBundle(),
+            
             
             new Traffic\StoreBundle\TrafficStoreBundle(),
-            new Application\FOS\UserBundle\ApplicationFOSUserBundle(),
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test','local','staging'))) {

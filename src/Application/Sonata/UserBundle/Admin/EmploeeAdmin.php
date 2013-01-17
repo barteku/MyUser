@@ -83,11 +83,33 @@ class EmploeeAdmin extends Admin{
     protected function configureDatagridFilters(DatagridMapper $filterMapper)
     {
         $filterMapper
-            ->add('username')
-            ->add('locked')
-            ->add('email')
-            ->add('id')
+            ->add('username', 'doctrine_orm_callback', array(
+                'callback' => array($this, 'getWithProfileFields'),
+                'field_type' => 'text',
+                
+            ),null, array('attr'=>array('placeholder'=>"lastname, email, phone")))    
+            
         ;
+    }
+    
+    public function getWithProfileFields($queryBuilder, $alias, $field, $value)
+    {
+        if (!$value['value']) {
+            return;
+        }
+
+        $search_str = $value['value'].'%';
+        
+        $queryBuilder
+            ->orWhere(sprintf('%s.lastname', $alias).' like :p1')
+                ->setParameter('p1', $search_str)
+            ->orWhere(sprintf('%s.email', $alias).' like :p2')
+                ->setParameter('p2', $search_str)
+            ->orWhere(sprintf('%s.mobile', $alias).' like :p2')
+                ->setParameter('p2', $search_str)
+        ;
+
+        return true;
     }
     
     

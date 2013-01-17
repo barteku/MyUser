@@ -24,5 +24,6 @@ class TrafficStoreExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/service'));
         $loader->load('admin.xml');
+        $loader->load('managers.xml');
     }
 }

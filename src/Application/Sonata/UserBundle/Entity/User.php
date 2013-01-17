@@ -2,10 +2,8 @@
 namespace Application\Sonata\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Sonata\UserBundle\Entity\BaseUser as BaseUser;
-use Application\Sonata\UserBundle\Entity\Group;
-use Application\Sonata\UserBundle\Entity\Address;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Application\Sonata\UserBundle\Model\UserModel;
 
 
 /**
@@ -17,7 +15,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\DiscriminatorMap({"storeowner" = "StoreOwner", "client" = "Client", "emploee" = "Emploee"})
  * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
-abstract class User extends BaseUser
+abstract class User extends UserModel
 {
     /**
      * @var integer $id
@@ -45,164 +43,26 @@ abstract class User extends BaseUser
 
 
     /**
-     * @var datetime $created
+     * @var string $createdBy
      *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(type="string", nullable=true)
      */
-    protected $created;
-
+    protected $createdBy;
+    
     /**
-     * @var datetime $updated
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
+     * @var string $updatedBy
+     * 
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(type="string", nullable=true)
+     * 
      */
-    protected $updated;
+    protected $updatedBy;
 
     
     /**
      * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
      */
     protected $deletedAt;
-
-
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        
-        $this->address = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return User
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-    
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime 
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return User
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-    
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime 
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
-    /**
-     * Set deletedAt
-     *
-     * @param \DateTime $deletedAt
-     * @return User
-     */
-    public function setDeletedAt($deletedAt)
-    {
-        $this->deletedAt = $deletedAt;
-    
-        return $this;
-    }
-
-    /**
-     * Get deletedAt
-     *
-     * @return \DateTime 
-     */
-    public function getDeletedAt()
-    {
-        return $this->deletedAt;
-    }
-
-    
-    /**
-     * Add address
-     *
-     * @param \Application\Sonata\UserBundle\Entity\Address $address
-     * @return StoreOwner
-     */
-    public function addAddre(\Application\Sonata\UserBundle\Entity\Address $address)
-    {
-        $this->addAddres($address);
-    
-        return $this;
-    }
-    
-    /**
-     * Add address
-     *
-     * @param \Application\Sonata\UserBundle\Entity\Address $address
-     * @return User
-     */
-    public function addAddres(\Application\Sonata\UserBundle\Entity\Address $address)
-    {
-        $this->address[] = $address;
-    
-        return $this;
-    }
-
-    /**
-     * Remove address
-     *
-     * @param \Application\Sonata\UserBundle\Entity\Address $address
-     */
-    public function removeAddres(\Application\Sonata\UserBundle\Entity\Address $address)
-    {
-        $this->address->removeElement($address);
-    }
-
-    /**
-     * Get address
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
 
 }

@@ -16,7 +16,17 @@ framework:
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
-    session:         ~
+    session:
+      handler_id:     session.handler.pdo
+
+
+parameters:
+    pdo.db_options:
+        db_table:    session
+        db_id_col:   session_id
+        db_data_col: session_value
+        db_time_col: session_time
+
 
 # Twig Configuration
 twig:
@@ -147,7 +157,7 @@ sonata_admin:
         # default global templates
         layout:  ApplicationSonataAdminBundle::standard_layout.html.twig
         ajax:    SonataAdminBundle::ajax_layout.html.twig
-        dashboard: SonataAdminBundle:Core:dashboard.html.twig
+        dashboard: ApplicationSonataAdminBundle:Core:dashboard.html.twig
 
         # default actions templates, should extend a global templates
         list:    SonataAdminBundle:CRUD:list.html.twig
@@ -230,3 +240,20 @@ knp_snappy:
         binary:     /usr/bin/wkhtmltopdf
         options: []
         
+fos_js_routing:
+    routes_to_expose:
+      - traffic_store_bundle_category_admin_tree_rename
+      - traffic_store_bundle_category_admin_tree_remove
+      - traffic_store_bundle_category_admin_tree_add
+      - traffic_store_bundle_category_admin_tree_move
+      
+services:
+    pdo:
+      class: PDO
+      arguments:
+        - "mysql:host=%database_host%;port=%database_port%;dbname=%database_name%"
+        - %database_user%
+        - %database_password%
+    session.handler.pdo:
+        class: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+        arguments: [@pdo, %pdo.db_options%]

@@ -1,0 +1,38 @@
+{% extends base_template %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('/bundles/trafficstore/css/context.menu.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('/bundles/trafficstore/css/learningStructureContextMenu.css') }}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('/bundles/trafficstore/css/learningStructureTree.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script type="text/javascript" src="{{ asset('/bundles/trafficstore/js/jquery.mjs.nestedSortable.js') }}"/></script>
+    <script type="text/javascript" src="{{ asset('/bundles/trafficstore/js/context.menu.js') }}"/></script>
+    <script type="text/javascript" src="{{ asset('/bundles/trafficstore/js/learningStructureTree.js') }}"/></script>
+    <script type="text/javascript" src="{{ asset('/bundles/trafficstore/js/learningStructureContextMenu.js') }}"/></script>
+    
+    
+    
+
+{% endblock %}
+
+{% block title %}{{ 'category.manager.title'|trans({}, 'TrafficStoreBundle') }}{% endblock %}
+
+
+{% block actions %}
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="treeview">
+        {{ tree|raw }}
+    </div>
+{% endblock %}

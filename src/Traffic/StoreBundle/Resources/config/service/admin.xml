@@ -7,13 +7,17 @@
     <services>
     <service id="traffic.admin.category" class="Traffic\StoreBundle\Admin\CategoryAdmin">
             <tag name="sonata.admin" manager_type="orm" group="traffic_store" label="category_admin" />
-            <argument />
+            <argument>traffic.admin.category</argument>
             <argument>Traffic\StoreBundle\Entity\Category</argument>
-            <argument>SonataAdminBundle:CRUD</argument>
+            <argument>TrafficStoreBundle:CategoryAdmin</argument>
 
-            
             <call method="setTranslationDomain">
                 <argument>TrafficStoreBundle</argument>
+            </call>
+            
+            <call method="setTemplate">
+                <argument>tree</argument>
+                <argument>TrafficStoreBundle:Category/CRUD:tree.html.twig</argument>
             </call>
         </service>
     </services>

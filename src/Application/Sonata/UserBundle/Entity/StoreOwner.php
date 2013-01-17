@@ -5,13 +5,13 @@ namespace Application\Sonata\UserBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Application\Sonata\UserBundle\Entity\User;
-
+use Application\Sonata\UserBundle\Model\StoreOwnerInterface;
 
 /**
  * @ORM\Entity
  * 
  */
-class StoreOwner extends User {
+class StoreOwner extends User implements StoreOwnerInterface {
 
     /**
      * @var integer
@@ -73,7 +73,7 @@ class StoreOwner extends User {
      * @ORM\Column(type="string", columnDefinition="ENUM('F', 'M')") 
      * 
      */
-    protected $sex;
+    protected $gender;
 
     /**
      * @var string
@@ -181,29 +181,7 @@ class StoreOwner extends User {
         return $this->citizenship;
     }
 
-    /**
-     * Set sex
-     *
-     * @param string $sex
-     * @return StoreOwner
-     */
-    public function setSex($sex)
-    {
-        $this->sex = $sex;
     
-        return $this;
-    }
-
-    /**
-     * Get sex
-     *
-     * @return string 
-     */
-    public function getSex()
-    {
-        return $this->sex;
-    }
-
     /**
      * Set mobile
      *
@@ -250,39 +228,4 @@ class StoreOwner extends User {
         return $this->phone_number;
     }
 
-    
-    /**
-     * Add address
-     *
-     * @param \Application\Sonata\UserBundle\Entity\Address $address
-     * @return StoreOwner
-     */
-    public function addAddres(\Application\Sonata\UserBundle\Entity\Address $address)
-    {
-        $this->address[] = $address;
-    
-        return $this;
-    }
-    
-    /**
-     * Remove address
-     *
-     * @param \Application\Sonata\UserBundle\Entity\Address $address
-     */
-    public function removeAddres(\Application\Sonata\UserBundle\Entity\Address $address)
-    {
-        $this->address->removeElement($address);
-    }
-
-    /**
-     * Get address
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    
 }
