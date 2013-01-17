@@ -32,8 +32,8 @@ class StoreOwnerAdmin extends BaseAdmin {
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('lastname')
-            ->add('firstname')
+            ->addIdentifier('fullname')
+            ->add('email')
         ;
     }
 
@@ -76,6 +76,8 @@ class StoreOwnerAdmin extends BaseAdmin {
     {
         $formMapper
             ->with('General')
+                ->add('firstname')
+                ->add('lastname')
                 ->add('username')
                 ->add('email')
                 ->add('plainPassword', 'text', array('required' => false))
