@@ -9,8 +9,8 @@ namespace Application\Sonata\UserBundle\Model;
 
 interface AddressInterface {
 
-    const TYPE_LIVING = 'living';
-    const TYPE_REGISTERED = 'registered';
+    const TYPE_BILLING = 'billing';
+    const TYPE_DELIVERY = 'delivery';
     
     
     
