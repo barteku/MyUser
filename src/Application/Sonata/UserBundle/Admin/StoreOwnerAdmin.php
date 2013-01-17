@@ -76,8 +76,8 @@ class StoreOwnerAdmin extends BaseAdmin {
     {
         $formMapper
             ->with('General')
-                ->add('firstname')
-                ->add('lastname')
+                ->add('firstname', 'text')
+                ->add('lastname', 'text')
                 ->add('username')
                 ->add('email')
                 ->add('plainPassword', 'text', array('required' => false))
