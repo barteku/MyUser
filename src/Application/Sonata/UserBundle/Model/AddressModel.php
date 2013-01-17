@@ -104,7 +104,7 @@ class AddressModel implements AddressInterface {
     
     public function __construct()
     {
-        $this->type = self::TYPE_LIVING;
+        $this->type = self::TYPE_BILLING;
     }
     
     
