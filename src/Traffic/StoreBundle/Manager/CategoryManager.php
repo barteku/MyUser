@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of LearningStructureManager
+ * Description of CategoryManager
  *
  * @author bartek
  */
@@ -46,7 +46,7 @@ class CategoryManager {
     /**
      * Returns an empty category instance
      *
-     * @return LearningStructure
+     * @return Category
      */
     public function create($name = null)
     {
@@ -69,7 +69,7 @@ class CategoryManager {
         return $object;
     }
     
-    public function persist(LearningStructure $object, $andFlush = true)
+    public function persist(Category $object, $andFlush = true)
     {
         $this->em->persist($object);
         if ($andFlush) {
@@ -79,7 +79,7 @@ class CategoryManager {
     
     
     public function findById($id){
-        return $this->findBy(array('id' => $id));
+        return $this->findOneBy(array('id' => $id));
     }
     
 
@@ -121,7 +121,7 @@ class CategoryManager {
         }else{
             $new_parent = $this->findById($new_parent);
             
-            if($new_parent instanceof LearningStructure){
+            if($new_parent instanceof Category){
                 if($node->getParent() === $new_parent){
                     $old_position = ($node->getLft() - $node->getParent()->getLft() -1)/2;
                     $new_position = $position[0];

@@ -26,6 +26,28 @@ abstract class User extends UserModel
      */
     protected $id;
     
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $firstname;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * 
+     */
+    protected $lastname;
+    
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(type="string", columnDefinition="ENUM('M', 'F')") 
+     */
+    protected $gender;
+    
     
     /**
      * @ORM\OneToMany(targetEntity="Address", mappedBy="user", cascade={"all"})

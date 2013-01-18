@@ -26,7 +26,7 @@ class CategoryAdmin extends BaseAdmin{
         $collection->add('tree_add','tree/add');
         $collection->add('tree_move','tree/move');
         
-        $collection->remove('create');
+        //$collection->remove('create');
         $collection->remove('delete');
         $collection->remove('add');
     }

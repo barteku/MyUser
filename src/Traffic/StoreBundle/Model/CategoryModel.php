@@ -76,6 +76,11 @@ class CategoryModel implements CategoryInterface {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
+    public function __toString() {
+        return $this->getName();
+    }
+    
+    
     /**
      * Get id
      *
