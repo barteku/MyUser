@@ -8,3 +8,5 @@ Trying to build a good base for further projects
 
 To see demo go to http://myuser.crmf.pl<br/>
 To log in use admin, admin
+<br/><br/>
+Work is still  in progress, so there might be some issues.
