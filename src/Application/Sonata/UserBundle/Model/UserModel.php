@@ -80,15 +80,18 @@ class UserModel extends SonataBaseUser implements UserInterface  {
 
     
     /**
-     * Get address
+     * set address
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param array of Address objects
+     * @return self
      */
     public function setAddress($address)
     {
         foreach($address as $a){
             $this->addAddress($a);
         }
+        
+        return $this;
     }
     
     /**
