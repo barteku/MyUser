@@ -13,7 +13,7 @@
     
     <tr>
         <td class="sonata-ba-list-label">
-            <form name="user-search-block-student" action="{{ path('admin_sonata_user_client_list')}}" method="get" class="user-search-block-form">
+            <form name="user-search-block-client" id="user-search-block-client-form" action="{{ path('admin_sonata_user_client_list')}}" method="get" class="user-search-block-form">
                 <label for="user-search-block-client-form-field-lastname">{% trans from 'ApplicationSonataAdminBundle' %}user.search.block.client_label{% endtrans %}</label>
                 <input type="text" name="filter[username][value]" id="user-search-block-client-form-field-lastname" placeholder="lastname, email, phone" />
                 <input type="hidden" name="filter[username][type]" >
@@ -23,7 +23,7 @@
             </form>
         </td>
         <td>
-            <a href="#" class="btn" id="user-search-block-student-search-submit" onclick="$('#user-search-block-student-form').submit()">
+            <a href="#" class="btn" id="user-search-block-student-search-submit" onclick="$('#user-search-block-client-form').submit()">
                 <i class="icon-search"></i>
                 {% trans from 'ApplicationSonataAdminBundle' %}user.search.block.search_button{% endtrans %}
             </a>
@@ -32,7 +32,7 @@
     
     <tr>
         <td class="sonata-ba-list-label">
-            <form name="user-search-block-teacher" id="user-search-block-teacher-form" action="{{ path('admin_sonata_user_storeowner_list')}}" method="get" class="user-search-block-form">
+            <form name="user-search-block-store-owner" id="user-search-block-store-owner-form" action="{{ path('admin_sonata_user_storeowner_list')}}" method="get" class="user-search-block-form">
                 <label for="user-search-block-storeowner-form-field-lastname">{% trans from 'ApplicationSonataAdminBundle' %}user.search.block.storeowner_label{% endtrans %}</label>
                 <input type="text" name="filter[username][value]" id="user-search-block-storeowner-form-field-lastname" placeholder="lastname, email, phone"/>
                 <input type="hidden" name="filter[username][type]" >
@@ -42,7 +42,7 @@
             </form>
         </td>
         <td>
-            <a href="#" class="btn" id="user-search-block-student-search-submit" onclick="$('#user-search-block-teacher-form').submit()">
+            <a href="#" class="btn" id="user-search-block-student-search-submit" onclick="$('#user-search-block-store-owner-form').submit()">
                 <i class="icon-search"></i>
                 {% trans from 'ApplicationSonataAdminBundle' %}user.search.block.search_button{% endtrans %}
             </a>

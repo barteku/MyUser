@@ -140,7 +140,27 @@ interface CategoryInterface {
      */
     public function getDeletedAt();
     
-    
+    /**
+     * Add products
+     *
+     * @param \Traffic\StoreBundle\Model\ProductInterface $products
+     * @return self
+     */
+    public function addProduct(\Traffic\StoreBundle\Model\ProductInterface $products);
+
+    /**
+     * Remove products
+     *
+     * @param \Traffic\StoreBundle\Model\ProductInterface $products
+     */
+    public function removeProduct(\Traffic\StoreBundle\Model\ProductInterface $products);
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProducts();
 }
 
 

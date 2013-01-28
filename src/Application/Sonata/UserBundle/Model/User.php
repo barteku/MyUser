@@ -11,7 +11,7 @@ use Application\Sonata\UserBundle\Model\UserInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 
-class UserModel extends SonataBaseUser implements UserInterface  {
+class User extends SonataBaseUser implements UserInterface  {
     
     /**
      * @var integer $id
@@ -29,18 +29,7 @@ class UserModel extends SonataBaseUser implements UserInterface  {
      */
     protected $groups;
 
-    /**
-     *
-     * @var type ArrayCollection
-     */
-    protected  $branches;
-    
-    /**
-     *
-     * @var type ArrayCollection
-     */
-    protected  $payments;    
-    
+        
     /**
      * @var type \DateTime
      */

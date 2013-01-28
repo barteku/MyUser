@@ -9,7 +9,7 @@ namespace Application\Sonata\UserBundle\Model;
 use Application\Sonata\UserBundle\Model\AddressInterface;
 
 
-class AddressModel implements AddressInterface {
+class Address implements AddressInterface {
     
     /**
      * @var integer $id
@@ -352,8 +352,7 @@ class AddressModel implements AddressInterface {
     {
         return $this->type;
     }
-    
-
+        
     /**
      * Set user
      *

@@ -11,6 +11,7 @@ interface AddressInterface {
 
     const TYPE_BILLING = 'billing';
     const TYPE_DELIVERY = 'delivery';
+    const TYPE_STORE = 'store';
     
     
     
@@ -170,8 +171,8 @@ interface AddressInterface {
      * @return string 
      */
     public function getType();
+        
     
-
     /**
      * Set user
      *

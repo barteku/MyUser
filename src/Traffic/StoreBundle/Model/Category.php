@@ -9,7 +9,7 @@ namespace Traffic\StoreBundle\Model;
 use Traffic\StoreBundle\Model\CategoryInterface;
 
 
-class CategoryModel implements CategoryInterface {
+class Category implements CategoryInterface {
 
     /**
      * unique identifier
@@ -66,6 +66,12 @@ class CategoryModel implements CategoryInterface {
      */
     protected $deletedAt;
     
+    /**
+     *
+     * @var type ArrayCollection
+     */
+    protected $products;
+    
     
     
     /**
@@ -74,6 +80,7 @@ class CategoryModel implements CategoryInterface {
     public function __construct()
     {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     public function __toString() {
@@ -286,5 +293,36 @@ class CategoryModel implements CategoryInterface {
     }
     
     
+    /**
+     * Add products
+     *
+     * @param \Traffic\StoreBundle\Model\ProductInterface $products
+     * @return Category
+     */
+    public function addProduct(\Traffic\StoreBundle\Model\ProductInterface $products)
+    {
+        $this->products[] = $products;
     
+        return $this;
+    }
+
+    /**
+     * Remove products
+     *
+     * @param \Traffic\StoreBundle\Model\ProductInterface $products
+     */
+    public function removeProduct(\Traffic\StoreBundle\Model\ProductInterface $products)
+    {
+        $this->products->removeElement($products);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
 }

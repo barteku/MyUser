@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
-use Application\Sonata\UserBundle\Model\AddressModel;
+use Application\Sonata\UserBundle\Model\Address as AddressModel;
 
 /**
  * Application\Sonata\UserBundle\Entity\Address

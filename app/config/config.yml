@@ -180,6 +180,11 @@ sonata_admin:
               - fos.user.admin.store_owner
               - fos.user.admin.group
           store_admin:
+            label: Store Admin
+            items:
+              - traffic.admin.store
+              - traffic.admin.product
+          settings_admin:
             label: Settings
             items:
               - traffic.admin.category

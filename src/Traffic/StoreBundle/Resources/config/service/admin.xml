@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-    <service id="traffic.admin.category" class="Traffic\StoreBundle\Admin\CategoryAdmin">
+        <service id="traffic.admin.category" class="Traffic\StoreBundle\Admin\CategoryAdmin">
             <tag name="sonata.admin" manager_type="orm" group="traffic_store" label="category_admin" />
             <argument>traffic.admin.category</argument>
             <argument>Traffic\StoreBundle\Entity\Category</argument>
@@ -20,5 +20,30 @@
                 <argument>TrafficStoreBundle:Category/CRUD:tree.html.twig</argument>
             </call>
         </service>
+        
+        <service id="traffic.admin.store" class="Traffic\StoreBundle\Admin\StoreAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="traffic_store" label="store_admin" />
+            <argument>traffic.admin.store</argument>
+            <argument>Traffic\StoreBundle\Entity\Store</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+
+            <call method="setTranslationDomain">
+                <argument>TrafficStoreBundle</argument>
+            </call>
+            
+        </service>
+        
+        <service id="traffic.admin.product" class="Traffic\StoreBundle\Admin\ProductAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="traffic_store" label="product_admin" />
+            <argument>traffic.admin.product</argument>
+            <argument>Traffic\StoreBundle\Entity\Product</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+
+            <call method="setTranslationDomain">
+                <argument>TrafficStoreBundle</argument>
+            </call>
+            
+        </service>
+        
     </services>
 </container>

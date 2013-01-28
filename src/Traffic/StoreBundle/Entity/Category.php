@@ -4,7 +4,7 @@ namespace Traffic\StoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Traffic\StoreBundle\Model\CategoryModel;
+use Traffic\StoreBundle\Model\Category as CategoryModel;
 
 
 /**
@@ -70,6 +70,9 @@ class Category extends CategoryModel {
      */
     protected $deletedAt;
     
-    
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category", cascade={"all"})
+     */
+    protected $products;
 
 }

@@ -3,7 +3,7 @@ namespace Application\Sonata\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Application\Sonata\UserBundle\Model\UserModel;
+use Application\Sonata\UserBundle\Model\User as UserModel;
 
 
 /**
@@ -50,7 +50,7 @@ abstract class User extends UserModel
     
     
     /**
-     * @ORM\OneToMany(targetEntity="Address", mappedBy="user", cascade={"all"})
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="user", cascade={"all"}, orphanRemoval=true)
      */
     protected $address;
    

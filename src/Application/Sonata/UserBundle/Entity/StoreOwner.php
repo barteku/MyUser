@@ -87,7 +87,23 @@ class StoreOwner extends User implements StoreOwnerInterface {
      */
     protected $phone_number;
 
-   
+    /**
+     * @var type ArrayCollection()
+     * 
+     * @ORM\OneToMany(targetEntity="Traffic\StoreBundle\Entity\Store", mappedBy="owner", cascade={"persist"})
+     */
+    protected $stores;
+    
+    
+    
+    
+    public function __construct() {
+        parent::__construct();
+        
+        $this->stores = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    
     
     /**
      * Set place_of_birth

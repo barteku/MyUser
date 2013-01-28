@@ -1,9 +1,4 @@
 <?php
-/**
- * Description of UserAdmin
- *
- * @author bartek
- */
 namespace Traffic\StoreBundle\Admin;
 
 
@@ -13,7 +8,11 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
-
+/**
+ * Description of UserAdmin
+ *
+ * @author bartek
+ */
 class CategoryAdmin extends BaseAdmin{
     
     protected $baseRouteName = 'traffic_store_bundle_category_admin';
