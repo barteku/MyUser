@@ -157,5 +157,16 @@ interface StoreInterface {
      */
     public function getProducts();
     
+    /**
+     * 
+     * @return type string
+     */
+    public function getLogo();
     
+    /**
+     * 
+     * @param type $logo
+     * @return self
+     */
+    public function setLogo($logo);
 }

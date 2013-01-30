@@ -26,6 +26,7 @@
             <argument>traffic.admin.store</argument>
             <argument>Traffic\StoreBundle\Entity\Store</argument>
             <argument>SonataAdminBundle:CRUD</argument>
+            <argument type="service" id="kitpages_file_system.file_system.kitpagesAmazon"></argument>
 
             <call method="setTranslationDomain">
                 <argument>TrafficStoreBundle</argument>

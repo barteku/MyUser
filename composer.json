@@ -39,8 +39,10 @@
         "sonata-project/exporter" : "dev-master",
         "sonata-project/google-authenticator" : "dev-master",
         "sonata-project/block-bundle" : "dev-master",
-        "liip/functional-test-bundle": "dev-master"
-        
+        "liip/functional-test-bundle": "dev-master",
+        "kitpages/util-bundle": "2.1.0RC1",
+        "kitpages/file-system-bundle": "dev-master",
+        "amazonwebservices/aws-sdk-for-php": "dev-master"
         
     },
     "scripts": {

@@ -8,6 +8,10 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Application\Sonata\UserBundle\Entity\Address;
 
+use Kitpages\FileSystemBundle\Model\AdapterFile;
+use Kitpages\FileSystemBundle\Service\Adapter\AmazonS3;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * Description of UserAdmin
@@ -15,6 +19,16 @@ use Application\Sonata\UserBundle\Entity\Address;
  * @author bartek
  */
 class StoreAdmin extends BaseAdmin{
+    
+    protected $s3Adapter;
+    
+    
+    public function __construct($code, $class, $baseControllerName, AmazonS3 $s3Adapter) {
+        parent::__construct($code, $class, $baseControllerName);
+        
+        $this->s3Adapter = $s3Adapter;
+    }
+    
     
     protected function configureListFields(ListMapper $listMapper)
     {
@@ -37,6 +51,7 @@ class StoreAdmin extends BaseAdmin{
     {
         $formMapper
             ->add('name')
+            ->add('logo_file', 'file')
             ->add('description')
             ->add('owner')    
             ->add('company_name')
@@ -45,5 +60,19 @@ class StoreAdmin extends BaseAdmin{
         ;
     }
     
+    public function prePersist($object) {
+        parent::prePersist($object);
+        $filename = sha1(uniqid(mt_rand(), true));
+        
+        $object->setLogo($filename.'.'.$object->logo_file->guessExtension());
+        
+    }
     
+    
+    public function postPersist($object) {
+        parent::prePersist($object);
+        
+        $this->s3Adapter->copyTempToAdapter($object->logo_file, new AdapterFile("/store/".$object->getId()."/logo/".$object->getLogo()));
+    }
+        
 }

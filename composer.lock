@@ -1,6 +1,56 @@
 {
-    "hash": "c954e948bfd46b41175bb1c6468f31c9",
+    "hash": "6bab1fe1445ef78bdbde1490ddde6d73",
     "packages": [
+        {
+            "name": "amazonwebservices/aws-sdk-for-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amazonwebservices/aws-sdk-for-php.git",
+                "reference": "1.6.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/amazonwebservices/aws-sdk-for-php/archive/1.6.0.zip",
+                "reference": "1.6.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "time": "2013-01-21 20:03:38",
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "authentication/",
+                    "extensions/",
+                    "lib/",
+                    "services/",
+                    "utilities/",
+                    "sdk.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "AWS SDK for PHP",
+            "homepage": "http://aws.amazon.com/sdkforphp/",
+            "keywords": [
+                "amazon",
+                "s3",
+                "sdk",
+                "aws",
+                "dynamodb",
+                "ec2"
+            ]
+        },
         {
             "name": "doctrine/common",
             "version": "2.3.0",
@@ -919,6 +969,102 @@
                 "security",
                 "secure",
                 "expression"
+            ]
+        },
+        {
+            "name": "kitpages/file-system-bundle",
+            "version": "dev-master",
+            "target-dir": "Kitpages/FileSystemBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kitpages/KitpagesFileSystemBundle",
+                "reference": "v2.1.0BETA4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kitpages/KitpagesFileSystemBundle/archive/v2.1.0BETA4.zip",
+                "reference": "v2.1.0BETA4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.1.*",
+                "kitpages/util-bundle": "2.1.*"
+            },
+            "require-dev": {
+                "kitpages/util-bundle": "dev-master"
+            },
+            "suggest": {
+                "amazonwebservices/aws-sdk-for-php": "*"
+            },
+            "time": "2012-10-10 13:29:56",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Kitpages\\FileSystemBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Philippe Le Van",
+                    "homepage": "https://twitter.com/#!/plv"
+                },
+                {
+                    "name": "Sebastien Lefebvre"
+                }
+            ],
+            "description": "Symfony Kitpages FileSystem Bundle. Abstraction layer for files (local, S3)",
+            "homepage": "https://github.com/kitpages/KitpagesFileSystemBundle",
+            "keywords": [
+                "filesystem",
+                "File abstraction layer",
+                "gaufrette"
+            ]
+        },
+        {
+            "name": "kitpages/util-bundle",
+            "version": "v2.1.0RC1",
+            "target-dir": "Kitpages/UtilBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kitpages/KitpagesUtilBundle",
+                "reference": "v2.1.0RC1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/kitpages/KitpagesUtilBundle/zipball/v2.1.0RC1",
+                "reference": "v2.1.0RC1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.1.*"
+            },
+            "time": "2012-10-12 06:21:21",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Kitpages\\UtilBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Philippe Le Van",
+                    "homepage": "https://twitter.com/#!/plv"
+                }
+            ],
+            "description": "Small common tools used for Kitpages bundles",
+            "homepage": "https://github.com/kitpages/KitpagesUtilBundle",
+            "keywords": [
+                "tools"
             ]
         },
         {
@@ -2435,6 +2581,9 @@
         "sonata-project/exporter": 20,
         "sonata-project/google-authenticator": 20,
         "sonata-project/block-bundle": 20,
-        "liip/functional-test-bundle": 20
+        "liip/functional-test-bundle": 20,
+        "kitpages/util-bundle": 5,
+        "kitpages/file-system-bundle": 20,
+        "amazonwebservices/aws-sdk-for-php": 20
     }
 }

@@ -40,6 +40,8 @@ class AppKernel extends Kernel
             new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
             new Application\FOS\UserBundle\ApplicationFOSUserBundle(),
             
+            new Kitpages\UtilBundle\KitpagesUtilBundle(),
+            new Kitpages\FileSystemBundle\KitpagesFileSystemBundle(),
             
             new Traffic\StoreBundle\TrafficStoreBundle(),
             

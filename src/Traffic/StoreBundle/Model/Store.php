@@ -25,6 +25,12 @@ class Store implements StoreInterface {
     protected $name;
     
     /**
+     * @var type string
+     */
+    protected $logo;
+    
+    
+    /**
      * @var string $description
      * 
      */
@@ -311,6 +317,25 @@ class Store implements StoreInterface {
     public function getProducts()
     {
         return $this->products;
+    }
+    
+    /**
+     * 
+     * @return type string
+     */
+    public function getLogo(){
+        return $this->logo;
+    }
+    
+    /**
+     * 
+     * @param type $logo
+     * @return self
+     */
+    public function setLogo($logo){
+        $this->logo = $logo;
+        
+        return $this;
     }
 }
 

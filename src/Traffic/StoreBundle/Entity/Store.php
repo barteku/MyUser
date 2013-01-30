@@ -38,6 +38,16 @@ class Store extends StoreModel {
     protected $name;
     
     /**
+     * @Assert\File(maxSize="6000000")
+     */
+    public $logo_file;
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $logo;
+    
+    /**
      * @var string $description
      * 
      * @ORM\Column(type="text", nullable=true)
