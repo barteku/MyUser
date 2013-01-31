@@ -74,5 +74,23 @@ class StoreAdmin extends BaseAdmin{
         
         $this->s3Adapter->copyTempToAdapter($object->logo_file, new AdapterFile("/store/".$object->getId()."/logo/".$object->getLogo()));
     }
+    
+    public function postUpdate($object) {
+        parent::postUpdate($object);
+        if($object->file !== null){
+            $this->s3Adapter->copyTempToAdapter($object->logo_file, new AdapterFile("/store/".$object->getId()."/logo/".$object->getLogo()));
+        }
+    }
+    
+    public function preRemove($object) {
+        parent::preRemove($object);
+        
+        if($object->getLogo() != ''){
+            $this->s3Adapter->unlink(new AdapterFile("/store/".$object->getId()."/logo/".$object->getLogo()));
+        }
+        
+    }
+    
+    
         
 }
